@@ -1,0 +1,252 @@
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-death-test.h"
+File name: gtest-death-test.h
+Number of code lines: 71
+Number of comment lines: 243
+Number of blank lines: 30
+Time of execution: 7 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-message.h"
+File name: gtest-message.h
+Number of code lines: 89
+Number of comment lines: 137
+Number of blank lines: 29
+Time of execution: 4 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-printers.h"
+File name: gtest-printers.h
+Number of code lines: 618
+Number of comment lines: 369
+Number of blank lines: 120
+Time of execution: 26 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-param-test.h"
+File name: gtest-param-test.h
+Number of code lines: 1013
+Number of comment lines: 327
+Number of blank lines: 94
+Time of execution: 29 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-test-part.h"
+File name: gtest-test-part.h
+Number of code lines: 77
+Number of comment lines: 72
+Number of blank lines: 34
+Time of execution: 2 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-spi.h"
+File name: gtest-spi.h
+Number of code lines: 98
+Number of comment lines: 115
+Number of blank lines: 24
+Time of execution: 6 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest_prod.h"
+File name: gtest_prod.h
+Number of code lines: 5
+Number of comment lines: 51
+Number of blank lines: 5
+Time of execution: 1 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest_pred_impl.h"
+File name: gtest_pred_impl.h
+Number of code lines: 217
+Number of comment lines: 96
+Number of blank lines: 46
+Time of execution: 8 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest-typed-test.h"
+File name: gtest-typed-test.h
+Number of code lines: 124
+Number of comment lines: 138
+Number of blank lines: 44
+Time of execution: 8 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\custom\\gtest-port.h"
+File name: gtest-port.h
+Number of code lines: 3
+Number of comment lines: 32
+Number of blank lines: 2
+Time of execution: 1 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\custom\\gtest-printers.h"
+File name: gtest-printers.h
+Number of code lines: 3
+Number of comment lines: 37
+Number of blank lines: 2
+Time of execution: 1 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\custom\\gtest.h"
+File name: gtest.h
+Number of code lines: 3
+Number of comment lines: 32
+Number of blank lines: 2
+Time of execution: 1 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\gtest.h"
+File name: gtest.h
+Number of code lines: 901
+Number of comment lines: 1098
+Number of blank lines: 347
+Time of execution: 54 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-death-test-internal.h"
+File name: gtest-death-test-internal.h
+Number of code lines: 144
+Number of comment lines: 97
+Number of blank lines: 39
+Time of execution: 5 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-filepath.h"
+File name: gtest-filepath.h
+Number of code lines: 53
+Number of comment lines: 124
+Number of blank lines: 34
+Time of execution: 5 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-internal.h"
+File name: gtest-internal.h
+Number of code lines: 694
+Number of comment lines: 453
+Number of blank lines: 183
+Time of execution: 21 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-linked_ptr.h"
+File name: gtest-linked_ptr.h
+Number of code lines: 118
+Number of comment lines: 95
+Number of blank lines: 30
+Time of execution: 5 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-port-arch.h"
+File name: gtest-port-arch.h
+Number of code lines: 61
+Number of comment lines: 36
+Number of blank lines: 3
+Time of execution: 2 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-param-util.h"
+File name: gtest-param-util.h
+Number of code lines: 445
+Number of comment lines: 191
+Number of blank lines: 88
+Time of execution: 17 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-string.h"
+File name: gtest-string.h
+Number of code lines: 36
+Number of comment lines: 107
+Number of blank lines: 24
+Time of execution: 4 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-tuple.h"
+File name: gtest-tuple.h
+Number of code lines: 752
+Number of comment lines: 70
+Number of blank lines: 199
+Time of execution: 16 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListLib\\framework.h"
+File name: framework.h
+Number of code lines: 2
+Number of comment lines: 0
+Number of blank lines: 1
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-port.h"
+File name: gtest-port.h
+Number of code lines: 1336
+Number of comment lines: 994
+Number of blank lines: 372
+Time of execution: 52 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListLib\\pch.cpp"
+File name: pch.cpp
+Number of code lines: 1
+Number of comment lines: 2
+Number of blank lines: 2
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListLib\\pch.h"
+File name: pch.h
+Number of code lines: 4
+Number of comment lines: 6
+Number of blank lines: 3
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListLib\\string_list.c"
+File name: string_list.c
+Number of code lines: 133
+Number of comment lines: 0
+Number of blank lines: 22
+Time of execution: 2 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListLib\\string_list.h"
+File name: string_list.h
+Number of code lines: 10
+Number of comment lines: 0
+Number of blank lines: 1
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-param-util-generated.h"
+File name: gtest-param-util-generated.h
+Number of code lines: 4922
+Number of comment lines: 231
+Number of blank lines: 399
+Time of execution: 125 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListTests\\main.cpp"
+File name: main.cpp
+Number of code lines: 6
+Number of comment lines: 0
+Number of blank lines: 1
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListTests\\pch.cpp"
+File name: pch.cpp
+Number of code lines: 1
+Number of comment lines: 3
+Number of blank lines: 1
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListTests\\pch.h"
+File name: pch.h
+Number of code lines: 2
+Number of comment lines: 3
+Number of blank lines: 2
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\Task1\\string_list.c"
+File name: string_list.c
+Number of code lines: 66
+Number of comment lines: 0
+Number of blank lines: 11
+Time of execution: 1 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\StringListTests\\test.cpp"
+File name: test.cpp
+Number of code lines: 106
+Number of comment lines: 0
+Number of blank lines: 43
+Time of execution: 2 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\packages\\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\\build\\native\\include\\gtest\\internal\\gtest-type-util.h"
+File name: gtest-type-util.h
+Number of code lines: 3092
+Number of comment lines: 115
+Number of blank lines: 141
+Time of execution: 91 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\Task1\\string_list.h"
+File name: string_list.h
+Number of code lines: 7
+Number of comment lines: 0
+Number of blank lines: 1
+Time of execution: 0 ms
+
+Path to file: "C:/Users/Legion/source/repos/SoftServe/Task1\\Task1\\Task1.c"
+File name: Task1.c
+Number of code lines: 17
+Number of comment lines: 0
+Number of blank lines: 0
+Time of execution: 0 ms
+
