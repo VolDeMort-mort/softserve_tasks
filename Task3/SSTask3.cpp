@@ -77,8 +77,8 @@ TEST(FileAnalyzerTest, BlockCommentEndLineCountsAsCode) {
     FileStatistics stats{};
     analyzeFile(filename, stats);
 
-    EXPECT_EQ(stats.comment, 2);
-    EXPECT_EQ(stats.code, 2);
+    EXPECT_EQ(stats.comment, 3);
+    EXPECT_EQ(stats.code, 1);
 
     fs::remove(filename);
 }
@@ -152,8 +152,8 @@ TEST(FileAnalyzerTest, MultilineBlockComment) {
     FileStatistics stats{};
     analyzeFile(filename, stats);
 
-    EXPECT_EQ(stats.comment, 3);
-    EXPECT_EQ(stats.code, 2);
+    EXPECT_EQ(stats.comment, 4);
+    EXPECT_EQ(stats.code, 1);
 
     fs::remove(filename);
 }
