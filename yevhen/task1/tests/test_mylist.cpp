@@ -55,7 +55,7 @@ TEST_F(StringListTest, RemoveDuplicatesStrings) {
     StringListAdd(&list, "c");
 
     StringListRemoveDuplicates(&list);
-    EXPECT_EQ(2, StringListSize(&list));
+    EXPECT_EQ(3, StringListSize(&list));
     EXPECT_EQ(0, StringListIndexOf(&list, "a"));
     EXPECT_EQ(1, StringListIndexOf(&list, "b"));
     EXPECT_EQ(2, StringListIndexOf(&list, "c"));
@@ -70,6 +70,17 @@ TEST_F(StringListTest, ReplaceSubstring) {
     EXPECT_STREQ("hello test", list[0]);
     EXPECT_STREQ("test hello", list[1]);
 }
+
+TEST_F(StringListTest, ReplaceFewSubstring) {
+    StringListAdd(&list, "hello world-world");
+    StringListAdd(&list, "worldworldworld");
+
+    StringListReplaceInStrings(&list, "world", "test");
+
+    EXPECT_STREQ("hello test-test", list[0]);
+    EXPECT_STREQ("testtesttest", list[1]);
+}
+
 
 TEST_F(StringListTest, Sort) {
     StringListAdd(&list, "banana");

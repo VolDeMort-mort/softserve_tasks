@@ -68,29 +68,24 @@ void StringListAdd(char ***list, const char *str)
     if (!list || !*list)
         return;
 
-    int counter = 0;
-    while ((*list)[counter] != NULL &&
-           strcmp((*list)[counter], EMPTY) != 0)
-    {
-        counter++;
-    }
+    int size = StringListSize(list);
 
-    if ((*list)[counter] == NULL)
+    if ((*list)[size] == NULL)
     {
-        reallocate_list(list, counter);
+        reallocate_list(list, size);
     }
 
     int needed = strlen(str) + 1;
 
-    if (strlen((*list)[counter]) < needed)
+    if (strlen((*list)[size]) < needed)
     {
-        char *tmp = (char*)realloc((*list)[counter], needed);
+        char *tmp = (char*)realloc((*list)[size], needed);
         if (!tmp)
             return;
-        (*list)[counter] = tmp;
+        (*list)[size] = tmp;
     }
 
-    strcpy((*list)[counter], str);
+    strcpy((*list)[size], str);
 }
 
 void StringListRemove(char ***list, const char *str)
@@ -192,7 +187,6 @@ void StringListRemoveDuplicates(char ***list)
     }
 }
 
-// fix: now replaces only first occurrence
 void StringListReplaceInStrings(char ***list, const char *before, const char *after)
 {
     if (!list || !*list || !before || before[0] == '\0')
@@ -203,26 +197,50 @@ void StringListReplaceInStrings(char ***list, const char *before, const char *af
            strcmp((*list)[counter], EMPTY) != 0)
     {
         char *old = (*list)[counter];
-        char *pos = strstr(old, before);
-        if (!pos)
-        {
+        int old_len = strlen(old);
+        int before_len = strlen(before);
+        int after_len = strlen(after);
+
+        int count = 0;
+        for (char *p = old; (p = strstr(p, before)) != nullptr; p += before_len)
+            count++;
+
+        if (count == 0) {
             counter++;
             continue;
         }
 
-        int new_len = strlen(old) - strlen(before) + strlen(after);
+        int new_len = old_len + count * (after_len - before_len);
         char *new_string = (char *)malloc(new_len + 1);
+        if (!new_string)
+            return;
 
-        int prefix_len = pos - old;
-        memcpy(new_string, old, prefix_len);
-        new_string[prefix_len] = '\0';
+        char *dst = new_string;
+        char *src = old;
 
-        strcat(new_string, after);
-        strcat(new_string, pos + strlen(before));
+        while (*src)
+        {
+            char *pos = strstr(src, before);
+            if (!pos)
+            {
+                strcpy(dst, src);
+                dst += strlen(src);
+                break;
+            }
+
+            int prefix_len = pos - src;
+            memcpy(dst, src, prefix_len);
+            dst += prefix_len;
+
+            memcpy(dst, after, after_len);
+            dst += after_len;
+
+            src = pos + before_len;
+        }
+        *dst = '\0';
 
         free(old);
         (*list)[counter] = new_string;
-
         counter++;
     }
 }
