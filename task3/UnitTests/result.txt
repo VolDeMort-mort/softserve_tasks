@@ -1,0 +1,48 @@
+--------------------------------------------------------------------------------------------------------------
+Project report for directory: "C:\\dev\\softserve_intership\\task3\\UnitTests\\test_dirs\\dir1"
+Scan time (ms): 2
+
+Files scanned:                8
+Files opened:                 8
+Files failed to open:         0
+
+Total lines (all files):      57
+Total code lines:             29
+Total comment lines:          16
+Total blank lines:            12
+
+File details:
+File                                              Opened      Code        Comments    Blanks      Total       
+0code0comm5bl.cpp                                 yes         0           0           5           5           
+0code2comm1bl.cpp                                 yes         0           2           1           3           
+2code4comm2bl.cpp                                 yes         2           4           2           8           
+3code4comm1bl.cpp                                 yes         3           4           1           8           
+5code0comm0bl.cpp                                 yes         5           0           0           5           
+6code0comm1bl.cpp                                 yes         6           0           1           7           
+6code0comm1bl.h                                   yes         6           0           1           7           
+7code6comm1bl.cpp                                 yes         7           6           1           14          
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Project report for directory: "C:\\dev\\softserve_intership\\task3\\UnitTests\\test_dirs\\dir1"
+Scan time (ms): 1
+
+Files scanned:                8
+Files opened:                 8
+Files failed to open:         0
+
+Total lines (all files):      57
+Total code lines:             29
+Total comment lines:          16
+Total blank lines:            12
+
+File details:
+File                                              Opened      Code        Comments    Blanks      Total       
+0code0comm5bl.cpp                                 yes         0           0           5           5           
+0code2comm1bl.cpp                                 yes         0           2           1           3           
+2code4comm2bl.cpp                                 yes         2           4           2           8           
+3code4comm1bl.cpp                                 yes         3           4           1           8           
+5code0comm0bl.cpp                                 yes         5           0           0           5           
+6code0comm1bl.cpp                                 yes         6           0           1           7           
+6code0comm1bl.h                                   yes         6           0           1           7           
+7code6comm1bl.cpp                                 yes         7           6           1           14          
+--------------------------------------------------------------------------------------------------------------
