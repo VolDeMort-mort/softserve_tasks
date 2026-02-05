@@ -1,6 +1,16 @@
 #include "ReadLiner.h"
 #include <algorithm>
 #include <fstream>
+#include "Printer.h"
+#include <future>
+
+Lines& Lines::operator+=(const Lines& other) {
+        blank += other.blank;
+        comment += other.comment;
+        code += other.code;
+        time_ms += other.time_ms;
+        return *this;
+    }
 
 void Clock::start() {
     start_ = std::chrono::steady_clock::now();
@@ -63,56 +73,97 @@ Lines ReadLiner::processFile(const std::filesystem::path& filePath) {
     return lines;
 }
 
-Lines ReadLiner::processDirectory(const std::filesystem::path& dirPath, unsigned char currentDepth) {
-    if (currentDepth > maxDepth_) {
-        return Lines{0, 0, 0, std::chrono::microseconds(0)};
-    }
+DirResult ReadLiner::processDirectory(const std::filesystem::path& dirPath, unsigned char currentDepth)
+{
+    DirResult dirResult;
+    dirResult.lines = Lines{0,0,0,std::chrono::microseconds(0)};
 
-    Lines lines{0, 0, 0, std::chrono::microseconds(0)};
-    int fileCount = 0;
+    if (currentDepth > maxDepth_)
+        return dirResult;
 
-    results_.emplace_back(dirPath, Lines{0,0,0,std::chrono::microseconds(0)}, 0, currentDepth);
-    int resultIndex = results_.size() - 1;
+    dirResult.results.emplace_back(dirPath,
+                                    Lines{0,0,0,std::chrono::microseconds(0)},
+                                    0,
+                                    currentDepth);
 
-    for (const auto& entry : std::filesystem::directory_iterator(dirPath)) {
-        if (entry.is_directory()) {
-            lines += processDirectory(entry.path(), currentDepth + 1);
-        } else if (entry.path().extension() == ".cpp" || entry.path().extension() == ".h" ||
-                   entry.path().extension() == ".hpp" || entry.path().extension() == ".c") {
-            lines += processFile(entry.path());
-            fileCount++;
+    int dirIndex = 0;
+    std::vector<std::future<DirResult>> subdirFutures;
+    std::vector<std::future<Lines>> fileFutures;
+    std::vector<std::filesystem::path> filePaths;
+
+    for (const auto& entry : std::filesystem::directory_iterator(dirPath))
+    {
+        if (entry.is_directory())
+        {
+            subdirFutures.push_back(
+                std::async(std::launch::async,
+                    [this, entry, currentDepth]() {
+                        return this->processDirectory(entry.path(), currentDepth + 1);
+                    }
+                )
+            );
+        }
+        else if (entry.path().extension() == ".cpp" ||
+                 entry.path().extension() == ".h" ||
+                 entry.path().extension() == ".hpp" ||
+                 entry.path().extension() == ".c")
+        {
+            filePaths.push_back(entry.path());
+            fileFutures.push_back(
+                std::async(std::launch::async,
+                    [this, entry]() {
+                        return this->processFile(entry.path());
+                    }
+                )
+            );
         }
     }
 
-    results_[resultIndex] = std::make_tuple(dirPath, lines, fileCount, currentDepth);
+    for (auto& f : subdirFutures)
+    {
+        DirResult child = f.get();
+        for (auto& r : child.results) {
+            dirResult.results.push_back(r);
+        }
 
-    return lines;
+        dirResult.lines += child.lines;
+        if (!child.results.empty())
+            std::get<2>(dirResult.results[dirIndex]) += std::get<2>(child.results[0]);
+    }
+
+    for (long long unsigned int i = 0; i < fileFutures.size(); i++)
+    {
+        Lines flines = fileFutures[i].get();
+        const auto& path = filePaths[i];
+        dirResult.results.emplace_back(path, flines, 1, currentDepth + 1);
+        dirResult.lines += flines;
+
+        std::get<2>(dirResult.results[dirIndex]) += 1;
+    }
+
+    dirResult.results[dirIndex] = std::make_tuple(dirPath, dirResult.lines, std::get<2>(dirResult.results[dirIndex]), currentDepth);
+
+    return dirResult;
 }
 
-void ReadLiner::run(const std::filesystem::path& pathToSaveFile) {
+
+void ReadLiner::run(const std::filesystem::path& pathToSaveFile, SaveMode mode) {
     if (!validateDirectory(root_)) {
-        throw std::runtime_error("Invalid root directory: " + root_.string());
+        throw std::runtime_error("Invalid root directory: " + root_.generic_string());
     }
+    DirResult rootResult = processDirectory(root_, 0);
+    results_ = std::move(rootResult.results);
 
-    processDirectory(root_, 0);
-    saveResults(pathToSaveFile);
-}
-
-void ReadLiner::saveResults(const std::filesystem::path& pathToSaveFile) {
-    std::ofstream file(pathToSaveFile);
-    if (!file) {
-        throw std::runtime_error("Could not open file to save results: " + pathToSaveFile.string());
+    IPrinter* printer = new CSVPrinter();
+    switch (mode)
+    {
+    case SaveMode::CSV:
+        break;
+    case SaveMode::Pretty:
+        printer = new PrettyPrinter();
+        break;
+    default:
+        break;
     }
-
-    file << "Directory,Blank Lines,Comment Lines,Code Lines,Files Processed,Time (microseconds)\n";
-    for (const auto& [dirPath, lines, fileCount, depth] : results_) {
-        file << std::string(depth, '\t')
-             << dirPath.string() << ","
-             << lines.blank << ","
-             << lines.comment << ","
-             << lines.code << ","
-             << fileCount << ","
-             << lines.time_ms.count() << "\n";
-    }
-    file.close();
+    printer->save(pathToSaveFile, results_);
 }

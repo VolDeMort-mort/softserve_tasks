@@ -1,0 +1,6 @@
+Name - Blank Lines - Comment Lines - Code Lines - Files Processed - Time (microseconds)
+yevhen - 2 - 0 - 24 - 1 - 71
+	task1 - 0 - 0 - 0 - 0 - 0
+	task2 - 2 - 0 - 24 - 1 - 71
+		main.cpp - 2 - 0 - 24 - 1 - 71
+	task3 - 0 - 0 - 0 - 0 - 0
