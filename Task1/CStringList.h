@@ -1,6 +1,3 @@
-#ifndef STRINGLIST_H
-#define STRINGLIST_H
-
 #pragma once
 
 #include <stdlib.h>
@@ -23,5 +20,3 @@ void StringListRemoveDuplicates(char** list);
 void StringListReplaceInStrings(char** list, char* one, char* anotherone);
 
 void StringListSort(char** list);
-
-#endif
