@@ -98,9 +98,11 @@ public:
 
 		reset();
 	
-		new(buffer)T(std::forward<T>(arg));
-		ptr_controller = &Controller<T>::control;
-		return *reinterpret_cast<T*>(&buffer);	
+		using DecType = std::decay_t<T>;
+
+		new(buffer)DecType(std::forward<T>(arg));
+		ptr_controller = &Controller<DecType>::control;
+		return *reinterpret_cast<DecType*>(&buffer);
 	}
 
 	bool has_value() const noexcept
