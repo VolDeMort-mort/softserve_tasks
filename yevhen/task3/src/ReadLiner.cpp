@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Printer.h"
 #include <future>
+#include <memory>
 
 Lines& Lines::operator+=(const Lines& other) {
         blank += other.blank;
@@ -44,8 +45,9 @@ Lines ReadLiner::processFile(const std::filesystem::path& filePath) {
     }
 
     std::string line;
-    clock_->start();
     bool multiLineComment = false;
+    Clock clock;
+    clock.start();
     while (std::getline(file, line)) {
         if (line.empty()) {
             lines.blank++;
@@ -67,7 +69,7 @@ Lines ReadLiner::processFile(const std::filesystem::path& filePath) {
             }
         }
     }
-    lines.time_ms = clock_->stop();
+    lines.time_ms = clock.stop();
     file.close();
 
     return lines;
@@ -96,7 +98,7 @@ DirResult ReadLiner::processDirectory(const std::filesystem::path& dirPath, unsi
         if (entry.is_directory())
         {
             subdirFutures.push_back(
-                std::async(std::launch::async,
+                std::async(std::launch::async | std::launch::deferred,
                     [this, entry, currentDepth]() {
                         return this->processDirectory(entry.path(), currentDepth + 1);
                     }
@@ -110,7 +112,7 @@ DirResult ReadLiner::processDirectory(const std::filesystem::path& dirPath, unsi
         {
             filePaths.push_back(entry.path());
             fileFutures.push_back(
-                std::async(std::launch::async,
+                std::async(std::launch::async | std::launch::deferred,
                     [this, entry]() {
                         return this->processFile(entry.path());
                     }
@@ -154,15 +156,17 @@ void ReadLiner::run(const std::filesystem::path& pathToSaveFile, SaveMode mode) 
     DirResult rootResult = processDirectory(root_, 0);
     results_ = std::move(rootResult.results);
 
-    IPrinter* printer = new CSVPrinter();
+    std::unique_ptr<IPrinter> printer;
     switch (mode)
     {
     case SaveMode::CSV:
+        printer = std::make_unique<CSVPrinter>();
         break;
     case SaveMode::Pretty:
-        printer = new PrettyPrinter();
+        printer = std::make_unique<PrettyPrinter>();
         break;
     default:
+        printer = std::make_unique<CSVPrinter>();
         break;
     }
     printer->save(pathToSaveFile, results_);

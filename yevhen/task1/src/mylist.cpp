@@ -101,16 +101,28 @@ void StringListRemove(char ***list, const char *str)
     {
         if (strcmp(arr[read], str) != 0)
         {
-            if (write != read)
-                strcpy(arr[write], arr[read]);
+            if (write != read) {
+                free(arr[write]);
+                arr[write] = arr[read];
+                arr[read] = NULL;
+            }
             write++;
+        } else {
+            free(arr[read]);
+            arr[read] = NULL;
         }
         read++;
     }
 
     while (arr[write] != NULL)
     {
-        strcpy(arr[write], EMPTY);
+        char *tmp = (char*)realloc(arr[write], STRING_SIZE);
+        if(tmp) {
+            arr[write] = tmp;
+            *arr[write] = '\0';
+        } else {
+            strcpy(arr[write], EMPTY);
+        }
         write++;
     }
 }
@@ -172,9 +184,15 @@ void StringListRemoveDuplicates(char ***list)
 
         if (!seen)
         {
-            if (write != read)
-                strcpy(arr[write], arr[read]);
+            if (write != read) {
+                free(arr[write]);
+                arr[write] = arr[read];
+                arr[read] = NULL;
+            }
             write++;
+        } else {
+            free(arr[read]);
+            arr[read] = NULL;
         }
 
         read++;
@@ -182,7 +200,13 @@ void StringListRemoveDuplicates(char ***list)
 
     while (arr[write] != NULL)
     {
-        strcpy(arr[write], EMPTY);
+        char *tmp = (char*)realloc(arr[write], STRING_SIZE);
+        if(tmp) {
+            arr[write] = tmp;
+            *arr[write] = '\0';
+        } else {
+            strcpy(arr[write], EMPTY);
+        }
         write++;
     }
 }
@@ -202,7 +226,7 @@ void StringListReplaceInStrings(char ***list, const char *before, const char *af
         int after_len = strlen(after);
 
         int count = 0;
-        for (char *p = old; (p = strstr(p, before)) != nullptr; p += before_len)
+        for (char *p = old; (p = strstr(p, before)) != NULL; p += before_len)
             count++;
 
         if (count == 0) {

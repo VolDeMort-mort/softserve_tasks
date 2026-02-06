@@ -14,6 +14,9 @@ std::string to_string(const Type &type) {
         case Type::u_l: return "unsigned long";
         case Type::ll: return "long long";
         case Type::u_ll: return "unsigned long long";
+        case Type::f: return "float";
+        case Type::d: return "double";
+        case Type::ld: return "long double";
         case Type::b: return "bool";
         case Type::invalid: return "invalid";
         default: return "unknown";

@@ -2,7 +2,7 @@
 #define MYLIST_H
 
 #define LIST_SIZE 8
-#define STRING_SIZE 256
+#define STRING_SIZE 1
 #define EMPTY "\0"
 
 /* Initializes list */

@@ -47,7 +47,6 @@ class ReadLiner {
 private:
     std::filesystem::path root_;
     unsigned char maxDepth_;
-    Clock *clock_ = new Clock();
     // directory, statistics, files processed, depth
     std::vector<std::tuple<std::filesystem::path, Lines, int, unsigned char>> results_;
 
