@@ -1,0 +1,11 @@
+**/.vs/
+**/packages/
+**/task1_softserve/
+**/x64/
+**/bin/
+**/obj/
+**/*.sln
+**/*.user
+**/*.filters
+**/*.vcxproj
+**/*.config
