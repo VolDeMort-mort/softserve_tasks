@@ -1,0 +1,3 @@
+extensions=.c,.cpp,.h,.hpp,.cc,.cxx
+threadCount=4
+outputFilePath=output.txt
