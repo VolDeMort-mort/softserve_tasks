@@ -11,7 +11,7 @@
 #include <fstream>
 #include <string>
 
-#define DEBUG_SLEEP_MODE 1000
+#define DEBUG_SLEEP_MODE 0
 #define DEBUG_PRINT_MODE 0
 
 #if (DEBUG_PRINT_MODE != 0)
